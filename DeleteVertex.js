@@ -36,6 +36,11 @@ function addPolygon(map) {
     poly.setEditable(true);
 
     addDeleteButton(poly, 'http://i.imgur.com/RUrKV.png');
+    //add right click deletion evetn
+    poly.addListener('rightclick', function(event){
+        var path = this.getPaths().getAt(event.path);
+        path.removeAt(event.vertex);
+    });
 }
 
 
